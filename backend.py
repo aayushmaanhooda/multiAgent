@@ -15,6 +15,7 @@ class RequestState(BaseModel):
 
 #  setup ai agent from frontend
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from agent import ai_agent
 
 allowed_models = [
@@ -25,6 +26,15 @@ allowed_models = [
 ]
 
 app = FastAPI(title="Langgraph AI agent")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify your Vercel domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")

@@ -1,7 +1,9 @@
 # setup ui with streamlit (model provider, model, system prompt, query)
 import streamlit as st
+import os
 
-API_URL = "http://127.0.0.1:6969/chat"
+# Use environment variable for API URL, fallback to localhost for development
+API_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:6969") + "/chat"
 
 st.set_page_config(page_title="Langraph Agent UI", layout="wide")
 st.title("AI Chatbot Agent")
