@@ -30,7 +30,7 @@ app = FastAPI(title="Langgraph AI agent")
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your Vercel domain
+    allow_origins=["https://multiagent-piqd.onrender.com/"],  # In production, specify your Vercel domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
