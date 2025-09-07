@@ -4,7 +4,7 @@ import os
 
 # Use environment variable for API URL, fallback to localhost for development
 # For Render deployment, BACKEND_URL should be set to your backend service URL
-API_URL = os.getenv("BACKEND_URL", "https://multiagent-piqd.onrender.com/") + "chat"
+API_URL = os.getenv("BACKEND_URL", "https://multiagent-piqd.onrender.com") + "/chat"
 
 st.set_page_config(page_title="Langraph Agent UI", layout="centered")
 st.title("AI Chatbot Agent")
@@ -31,7 +31,7 @@ user_query = st.text_area(
     "Enter your Query: ", height=150, placeholder="How can I help you...."
 )
 
-if st.button("As Agent!"):
+if st.button("Ask Agent!"):
     if user_query.strip():
         # connect with bakcned url
         import requests
